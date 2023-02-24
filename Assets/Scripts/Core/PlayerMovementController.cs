@@ -4,41 +4,31 @@ using UnityEngine;
 
 public class PlayerMovementController : MonoBehaviour
 {
-    [SerializeField] private CharacterController _characterController;
-    [SerializeField] private float _speed;
-    [SerializeField] private float _jumpHeight;
-
-    [SerializeField] private Transform _groundCheck;
-    [SerializeField] private float _groundDistance;
     [SerializeField] private LayerMask _groundMask;
-    
-    private const float G = 9.8f;
-    private Vector3 _veloicityInAir;
-    private Vector3 _moveDirection;
-    private bool _IsOnGround;
+    [SerializeField] private float _speed;
 
-    void Update()
+    private Ray _ray;
+    private RaycastHit _rayHit;
+    private Vector3 _playerDestination;
+
+    private void Start()
     {
-        _IsOnGround = Physics.CheckSphere(_groundCheck.position, _groundDistance, _groundMask);
+        _playerDestination = transform.position;
+    }
 
-        if(_IsOnGround && _veloicityInAir.y < 0)
+    private void Update()
+    {
+        _ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (Input.GetMouseButtonDown(0))
         {
-            _veloicityInAir.y = -2f;
+            if (Physics.Raycast(_ray, out _rayHit, 1000, _groundMask, QueryTriggerInteraction.Ignore))
+            {
+                _playerDestination = new Vector3(_rayHit.point.x, transform.position.y, _rayHit.point.z);
+            }
         }
 
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-
-        _moveDirection = transform.right * x + transform.forward * z;
-        _characterController.Move(_moveDirection * _speed * Time.deltaTime);
-
-        if (Input.GetKeyDown(KeyCode.Space) && _IsOnGround)
-        {
-            _veloicityInAir.y = Mathf.Sqrt(_jumpHeight * 2f * G);
-        }
-
-        _veloicityInAir.y -= G * Time.deltaTime;
-
-        _characterController.Move(_veloicityInAir * Time.deltaTime);
+        transform.LookAt(_playerDestination);
+        transform.position = Vector3.MoveTowards(transform.position, _playerDestination, _speed * Time.deltaTime);
     }
 }

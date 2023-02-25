@@ -27,6 +27,7 @@ public class Mystery1 : MonoBehaviour
                 _IsMysteryObservation = false;
                 _cameraTransition.StartTransition(_cameraPosition);
                 _playerMovement.enabled = false;
+                _playerMovement.StopCharacter();
                 _pressButtonHint.SetActive(false);
             }
             else
@@ -34,6 +35,7 @@ public class Mystery1 : MonoBehaviour
                 _IsMysteryObservation = true;
                 _cameraTransition.StartTransition(_cameraDeafultPosition);
                 _playerMovement.enabled = true;
+                _playerMovement.StopCharacter();
                 _pressButtonHint.SetActive(true);
             }
         }

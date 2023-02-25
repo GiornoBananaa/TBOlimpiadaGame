@@ -18,32 +18,32 @@ public class ObserveArtifact : MonoBehaviour
     [Header("Scripts")]
     [SerializeField] private ArtifactRotationController _artifactRotation;
     [SerializeField] private CameraTransition _cameraTransition;
+    [SerializeField] private ArtifactTransition _artifactTransition;
     [SerializeField] private PlayerMovementController _playerMovement;
 
+    public bool IsObservation;
 
-    private bool _IsObservation;
     private void Start()
     {
-        _IsObservation = false;
+        IsObservation = false;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             StopAllCoroutines();
 
-            if (!_IsObservation)
+            if (!IsObservation)
             {
-                _IsObservation = true;
+                IsObservation = true;
                 StartCoroutine(ArtifactTransit(_artifactPositionForObservation));
-                _cameraTransition.StartTransition(_cameraPositionInCharacter);
             }
             else
             {
-                _IsObservation = false;
+                IsObservation = false;
                 StartCoroutine(ArtifactTransit(_artifactPositionInHand));
-                _cameraTransition.StartTransition(_cameraPositionDeafult);
+                
             }
 
             if (_artifactRotation.enabled == false)
@@ -62,10 +62,14 @@ public class ObserveArtifact : MonoBehaviour
 
     private IEnumerator ArtifactTransit(Transform _artifactTransitDestination)
     {
-        while (_artifact.transform.position != _artifactTransitDestination.position)
+        if (IsObservation)
         {
-            _artifact.transform.position = Vector3.Lerp(_artifact.transform.position, _artifactTransitDestination.position, _artifactTransitionSpeed * Time.deltaTime);
-            yield return null;
+            _cameraTransition.StartTransition(_cameraPositionInCharacter);
+            yield return new WaitForSeconds(0.5f);
         }
+        else
+            _cameraTransition.StartTransition(_cameraPositionDeafult);
+
+        _artifactTransition.StartTransition(_artifactTransitDestination);
     }
 }

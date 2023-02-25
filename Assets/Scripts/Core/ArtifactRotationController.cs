@@ -5,15 +5,13 @@ using UnityEngine;
 public class ArtifactRotationController : MonoBehaviour
 {
     [SerializeField] private float _mouseSensitivity = 100f;
-    [SerializeField] private float _moveSpeed;
     [SerializeField] private Camera _camera;
 
     private float _mouseX;
     private float _mouseY;
     private Vector3 _rotationDirection;
-    private Vector3 _moveDirection;
 
-    void Update()
+    private void Update()
     {
         if (Input.GetMouseButton(0))
         {

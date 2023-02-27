@@ -20,6 +20,7 @@ public class ObserveArtifact : MonoBehaviour
     [SerializeField] private CameraTransition _cameraTransition;
     [SerializeField] private ArtifactTransition _artifactTransition;
     [SerializeField] private PlayerMovementController _playerMovement;
+    [SerializeField] private KeyMystery _keyMystery;
 
     public bool IsObservation;
 
@@ -51,11 +52,13 @@ public class ObserveArtifact : MonoBehaviour
                 _playerMovement.StopCharacter();
                 _playerMovement.enabled = false;
                 _artifactRotation.enabled = true;
+                _keyMystery.enabled = true;
             }
             else
             {
                 _playerMovement.enabled = true;
                 _artifactRotation.enabled = false;
+                _keyMystery.enabled = false;
             }
         }
     }

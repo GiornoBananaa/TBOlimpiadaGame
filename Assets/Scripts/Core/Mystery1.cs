@@ -17,6 +17,7 @@ public class Mystery1 : MonoBehaviour
     [SerializeField] private ArtifactPositionController _artifactMovement;
     [SerializeField] private ArtifactRotationController _artifactRotation;
     [SerializeField] private ObserveArtifact _observeArtifact;
+    [SerializeField] private KeyMystery _keyMystery;
 
     private bool _IsMysteryObservation;
 
@@ -40,6 +41,7 @@ public class Mystery1 : MonoBehaviour
                 _artifactMovement.enabled = true;
                 _artifactRotation.enabled = true;
                 _playerMovement.enabled = false;
+                _keyMystery.enabled = true;
                 _playerMovement.StopCharacter();
 
                 _pressButtonHint.SetActive(false);
@@ -55,6 +57,7 @@ public class Mystery1 : MonoBehaviour
                 _artifactMovement.enabled = false;
                 _artifactRotation.enabled = false;
                 _playerMovement.enabled = true;
+                _keyMystery.enabled = false;
 
                 _pressButtonHint.SetActive(true);
             }

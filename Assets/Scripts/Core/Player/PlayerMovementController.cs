@@ -12,6 +12,8 @@ public class PlayerMovementController : MonoBehaviour
     private RaycastHit _rayHit;
     private Vector3 _playerDestination;
     private bool _isWalking;
+    private bool _hasPistol;
+
 
     private void Start()
     {
@@ -28,7 +30,20 @@ public class PlayerMovementController : MonoBehaviour
             if (Physics.Raycast(_ray, out _rayHit, 1000, _groundMask, QueryTriggerInteraction.Ignore))
             {
                 _playerDestination = new Vector3(_rayHit.point.x, transform.position.y, _rayHit.point.z);
-                _animator.SetBool("Walk", true);
+
+                if (_hasPistol)
+                {
+                    _animator.SetBool("Walk", false);
+                    _animator.SetBool("WalkPistol", true);
+                    _animator.SetBool("IdlePistol", false);
+                }
+                else
+                {
+                    _animator.SetBool("Walk", true);
+                    _animator.SetBool("WalkPistol", false);
+                    _animator.SetBool("IdlePistol", false);
+                }
+
                 _isWalking = true;
             }
         }
@@ -40,7 +55,20 @@ public class PlayerMovementController : MonoBehaviour
         }
         else if(_isWalking)
         {
-            _animator.SetBool("Walk", false);
+            if (_hasPistol)
+            {
+                _animator.SetBool("Walk", false);
+                _animator.SetBool("WalkPistol", false);
+                _animator.SetBool("IdlePistol", true);
+            }
+            else
+            {
+                _animator.SetBool("WalkPistol", false);
+                _animator.SetBool("Walk", false);
+                _animator.SetBool("IdlePistol", false);
+            }
+
+            _isWalking = false;
         }
     }
 
@@ -48,5 +76,10 @@ public class PlayerMovementController : MonoBehaviour
     {
         _playerDestination = transform.position;
         _animator.SetBool("Walk", false);
+    }
+
+    public void PistolEquiped(bool isEquiped)
+    {
+        _hasPistol = isEquiped;
     }
 }

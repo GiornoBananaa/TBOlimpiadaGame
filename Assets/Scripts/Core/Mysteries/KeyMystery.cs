@@ -6,14 +6,13 @@ public class KeyMystery : MonoBehaviour
 {
     [SerializeField] private int _keyLayerNumber;
     [SerializeField] private int _keyHoleLayerNumber;
-    [SerializeField] private ArtifactRotationController _artifactRotation;
     [SerializeField] private Material _activationMaterial;
     [SerializeField] private GameObject[] _doors;
     [SerializeField] private GameObject[] _keyHoles;
+    [SerializeField] private ArtifactRotationController _artifactRotation;
 
     private int _doorNumder;
     private Ray _ray;
-    private RaycastHit _rayHit;
     private bool _moveKey;
     private Vector3 _clickPosition;
 
@@ -41,7 +40,7 @@ public class KeyMystery : MonoBehaviour
             }
         }
         
-        if (Input.GetMouseButtonUp(0) && _moveKey)
+        if (_moveKey && Input.GetMouseButtonUp(0))
         {
             _moveKey = false;
             _artifactRotation.enabled = true;
@@ -56,7 +55,7 @@ public class KeyMystery : MonoBehaviour
                     _rayHit.point = transform.InverseTransformPoint(_rayHit.point);
                     if (_rayHit.point.z - _clickPosition.z > 0 && transform.localPosition.z < 0.02f)
                     {
-                        transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z + _rayHit.point.z - _clickPosition.z);
+                        transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z + (_rayHit.point.z - _clickPosition.z));
                     }
                 }
             }

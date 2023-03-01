@@ -19,16 +19,16 @@ public class BulletScript : MonoBehaviour
 
     private void Update()
     {
-        _rigidbody.velocity = transform.forward * _bulletSpeed * Time.deltaTime;
+        _rigidbody.velocity = transform.up * _bulletSpeed;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == _enemyLayerNumber)
+        if (collision.collider.gameObject.layer == _enemyLayerNumber)
         {
-            //collision.gameObject.GetComponent<EnemyScript>().GetDamage(_damage);
+            collision.gameObject.GetComponent<EnemyScript>().TakeDamage(_damage);
         }
-        //_bulletHit.Play();
+
         Destroy(gameObject);
     }
 }

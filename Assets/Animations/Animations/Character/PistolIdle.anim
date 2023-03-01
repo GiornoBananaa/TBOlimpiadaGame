@@ -97,22 +97,6 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: -0.32540342, y: -0.08703029, z: -0.07559304, w: 0.9385223}
-        inSlope: {x: 0, y: 0, z: 0, w: 0}
-        outSlope: {x: 0, y: 0, z: 0, w: 0}
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    path: "\u0421\u043A\u0435\u043B\u0435\u0442/bn_Torso01/bn_Torso02/bn_Torso03/bn_Shoulder_R/bn_Arm01_R"
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
         value: {x: 0.10319153, y: -0.11255361, z: -0.4520268, w: 0.8788373}
         inSlope: {x: 0, y: 0, z: 0, w: 0}
         outSlope: {x: 0, y: 0, z: 0, w: 0}
@@ -140,6 +124,22 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     path: "\u0421\u043A\u0435\u043B\u0435\u0442/bn_Torso01/bn_Torso02/bn_Torso03/bn_Shoulder_R/bn_Arm01_R/bn_Arm02_R/bn_Hand_R"
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: -0.34043777, y: 0.041162014, z: -0.23230028, w: 0.91018915}
+        inSlope: {x: 0, y: 0, z: 0, w: 0}
+        outSlope: {x: 0, y: 0, z: 0, w: 0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: "\u0421\u043A\u0435\u043B\u0435\u0442/bn_Torso01/bn_Torso02/bn_Torso03/bn_Shoulder_R/bn_Arm01_R"
   m_CompressedRotationCurves: []
   m_EulerCurves: []
   m_PositionCurves: []
@@ -189,13 +189,6 @@ AnimationClip:
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 2193621009
-      attribute: 2
-      script: {fileID: 0}
-      typeID: 4
-      customType: 0
-      isPPtrCurve: 0
-    - serializedVersion: 2
       path: 3745638127
       attribute: 2
       script: {fileID: 0}
@@ -204,6 +197,13 @@ AnimationClip:
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 1676995055
+      attribute: 2
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 2193621009
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -616,82 +616,6 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -0.32540342
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalRotation.x
-    path: "\u0421\u043A\u0435\u043B\u0435\u0442/bn_Torso01/bn_Torso02/bn_Torso03/bn_Shoulder_R/bn_Arm01_R"
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: -0.08703029
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalRotation.y
-    path: "\u0421\u043A\u0435\u043B\u0435\u0442/bn_Torso01/bn_Torso02/bn_Torso03/bn_Shoulder_R/bn_Arm01_R"
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: -0.07559304
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalRotation.z
-    path: "\u0421\u043A\u0435\u043B\u0435\u0442/bn_Torso01/bn_Torso02/bn_Torso03/bn_Shoulder_R/bn_Arm01_R"
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0.9385223
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalRotation.w
-    path: "\u0421\u043A\u0435\u043B\u0435\u0442/bn_Torso01/bn_Torso02/bn_Torso03/bn_Shoulder_R/bn_Arm01_R"
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
         value: 0.10319153
         inSlope: 0
         outSlope: 0
@@ -837,6 +761,82 @@ AnimationClip:
       m_RotationOrder: 4
     attribute: m_LocalRotation.w
     path: "\u0421\u043A\u0435\u043B\u0435\u0442/bn_Torso01/bn_Torso02/bn_Torso03/bn_Shoulder_R/bn_Arm01_R/bn_Arm02_R/bn_Hand_R"
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -0.34043777
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.x
+    path: "\u0421\u043A\u0435\u043B\u0435\u0442/bn_Torso01/bn_Torso02/bn_Torso03/bn_Shoulder_R/bn_Arm01_R"
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0.041162014
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.y
+    path: "\u0421\u043A\u0435\u043B\u0435\u0442/bn_Torso01/bn_Torso02/bn_Torso03/bn_Shoulder_R/bn_Arm01_R"
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -0.23230028
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.z
+    path: "\u0421\u043A\u0435\u043B\u0435\u0442/bn_Torso01/bn_Torso02/bn_Torso03/bn_Shoulder_R/bn_Arm01_R"
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0.91018915
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.w
+    path: "\u0421\u043A\u0435\u043B\u0435\u0442/bn_Torso01/bn_Torso02/bn_Torso03/bn_Shoulder_R/bn_Arm01_R"
     classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves:
@@ -1130,7 +1130,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -38.605484
+        value: -36.913
         inSlope: 13.093506
         outSlope: 13.093506
         tangentMode: 0
@@ -1149,7 +1149,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -8.400379
+        value: 16.95
         inSlope: -15.369598
         outSlope: -15.369598
         tangentMode: 0
@@ -1168,7 +1168,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -6.263011
+        value: -34.329
         inSlope: -13.31797
         outSlope: -13.31797
         tangentMode: 0

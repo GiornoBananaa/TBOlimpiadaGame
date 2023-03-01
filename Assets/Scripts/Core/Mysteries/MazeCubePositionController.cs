@@ -100,6 +100,7 @@ public class MazeCubePositionController : MonoBehaviour
             _moveCube = false;
             _rigidbody.isKinematic = true;
             _artifactRotation.enabled = true;
+            GetComponent<BoxCollider>().enabled = false;
 
             _inventory.Add(1);
 

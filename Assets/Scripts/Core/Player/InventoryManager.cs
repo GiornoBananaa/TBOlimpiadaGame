@@ -8,6 +8,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private GameObject[] _tools;
     [SerializeField] private GameObject[] _toolsUIPanels;
     [SerializeField] private PlayerMovementController _playerMovementController;
+    [SerializeField] private ObserveArtifact _observeArtifact;
 
     private int _activatedTransformation;
     private bool[] _availableTransformations;
@@ -29,13 +30,12 @@ public class InventoryManager : MonoBehaviour
     void Update()
     {
         _transformationCooldown += Time.deltaTime;
-
         int number;
         if (int.TryParse(Input.inputString, out number) && number > 0 && number < _tools.Length+1 && _transformationCooldown > 0.5f)
         {
             number--;
 
-            if(_activatedTransformation != number) Activate(number);
+            if(_activatedTransformation != number && !_observeArtifact.IsObservation) Activate(number);
 
             _transformationCooldown = 0;
         }
@@ -48,7 +48,7 @@ public class InventoryManager : MonoBehaviour
 
     public void Activate(int tool)
     {
-        if (_availableTransformations[tool])
+        if (_availableTransformations[tool] && tool != _activatedTransformation)
         {
             _tools[_activatedTransformation].GetComponent<Animator>().SetTrigger("Remove");
 

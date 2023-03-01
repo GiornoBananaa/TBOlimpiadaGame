@@ -27,7 +27,7 @@ public class PlayerMovementController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (Physics.Raycast(_ray, out _rayHit, 1000, _groundMask, QueryTriggerInteraction.Ignore))
+            if (Physics.Raycast(_ray, out _rayHit, 1000, _groundMask))
             {
                 _playerDestination = new Vector3(_rayHit.point.x, transform.position.y, _rayHit.point.z);
 
@@ -81,5 +81,6 @@ public class PlayerMovementController : MonoBehaviour
     public void PistolEquiped(bool isEquiped)
     {
         _hasPistol = isEquiped;
+        _animator.SetBool("IdlePistol", true);
     }
 }

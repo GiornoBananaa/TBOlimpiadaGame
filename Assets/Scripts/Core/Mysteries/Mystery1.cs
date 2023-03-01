@@ -16,6 +16,7 @@ public class Mystery1 : MonoBehaviour
     [SerializeField] private PlayerMovementController _playerMovement;
     [SerializeField] private ArtifactPositionController _artifactMovement;
     [SerializeField] private ArtifactRotationController _artifactRotation;
+    [SerializeField] private InventoryManager _inventoryManager;
     [SerializeField] private ObserveArtifact _observeArtifact;
     [SerializeField] private KeyMystery _keyMystery;
 
@@ -30,6 +31,7 @@ public class Mystery1 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F) && !_observeArtifact.IsObservation)
         {
+            _inventoryManager.Activate(0);
             if (!_IsMysteryObservation)
             {
                 _IsMysteryObservation = true;
@@ -38,6 +40,7 @@ public class Mystery1 : MonoBehaviour
                 _artifactTransition.StartTransition(_artifactMysteryPosition);
 
                 _observeArtifact.enabled = false;
+                _inventoryManager.enabled = false;
                 _artifactMovement.enabled = true;
                 _artifactRotation.enabled = true;
                 _playerMovement.enabled = false;
@@ -54,6 +57,7 @@ public class Mystery1 : MonoBehaviour
                 _artifactTransition.StartTransition(_artifactInHandPosition);
 
                 _observeArtifact.enabled = true;
+                _inventoryManager.enabled = true;
                 _artifactMovement.enabled = false;
                 _artifactRotation.enabled = false;
                 _playerMovement.enabled = true;

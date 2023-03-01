@@ -20,7 +20,7 @@ public class ArtifactRotationController : MonoBehaviour
             _mouseY = Input.GetAxis("Mouse Y");
 
             _rotationDirection = _camera.transform.up * _mouseX + _camera.transform.right * _mouseY;
-            transform.Rotate(_rotationDirection * _mouseSensitivity * Time.deltaTime, Space.World);
+            transform.Rotate(_rotationDirection * _mouseSensitivity, Space.World);
         }
     }
 }

@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
     [SerializeField] private float _transformationCooldown;
     [SerializeField] private GameObject[] _tools;
     [SerializeField] private GameObject[] _toolsUIPanels;
+    [SerializeField] private Color _activationColor;
+    [SerializeField] private Color _DiactivateColor;
     [SerializeField] private PlayerMovementController _playerMovementController;
     [SerializeField] private ObserveArtifact _observeArtifact;
 
@@ -44,6 +47,7 @@ public class InventoryManager : MonoBehaviour
     public void Add(int tool)
     {
         _availableTransformations[tool] = true;
+        _toolsUIPanels[tool].SetActive(true);
     }
 
     public void Activate(int tool)
@@ -52,9 +56,13 @@ public class InventoryManager : MonoBehaviour
         {
             _tools[_activatedTransformation].GetComponent<Animator>().SetTrigger("Remove");
 
+            _toolsUIPanels[_activatedTransformation].GetComponent<Image>().color = _DiactivateColor;
+
             _tools[tool].SetActive(true);
             _tools[tool].GetComponent<Animator>().SetTrigger("Take");
             _activatedTransformation = tool;
+
+            _toolsUIPanels[_activatedTransformation].GetComponent<Image>().color = _activationColor;
 
             if (tool == 1)
                 _playerMovementController.PistolEquiped(true);

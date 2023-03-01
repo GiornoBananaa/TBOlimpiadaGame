@@ -82,10 +82,13 @@ public class MazeCubePositionController : MonoBehaviour
             if (_isObservation)
             {
                 _rigidbody.detectCollisions = false;
+                _moveCube = false;
+                _rigidbody.isKinematic = true;
                 _isObservation = false;
             }
             else
             {
+                _moveCube = false;
                 _rigidbody.detectCollisions = true;
                 _isObservation = true;
             }

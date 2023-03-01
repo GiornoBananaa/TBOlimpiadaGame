@@ -111,7 +111,7 @@ public class ArtifactPositionController : MonoBehaviour
 
         _moveDirection = Vector3.right * _x + Vector3.up * _y + Vector3.forward * _z;
         _moveDirection = Quaternion.AngleAxis(Vector3.Angle(_moveDirection, _artifactDeafultPosition.rotation.eulerAngles),Vector3.up) * _moveDirection;
-        _rigidbody.velocity = _moveDirection * _moveSpeed * Time.deltaTime;
+        _rigidbody.velocity = _moveDirection * _moveSpeed;
 
 
         if (Vector3.Distance(_artifactDeafultPosition.position, transform.position) > _maxDistance)

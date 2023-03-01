@@ -47,7 +47,7 @@ public class ObserveArtifact : MonoBehaviour
                 
             }
 
-            if (_artifactRotation.enabled == false)
+            if (IsObservation)
             {
                 _playerMovement.StopCharacter();
                 _playerMovement.enabled = false;

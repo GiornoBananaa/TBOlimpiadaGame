@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Mystery1 : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Mystery1 : MonoBehaviour
     [SerializeField] private Transform _cameraDeafultPosition;
     [SerializeField] private Transform _artifactMysteryPosition;
     [SerializeField] private Transform _artifactInHandPosition;
+    [SerializeField] private GameObject _controlHint;
     [Header("Scripts")]
     [SerializeField] private CameraTransition _cameraTransition;
     [SerializeField] private ArtifactTransition _artifactTransition;
@@ -21,9 +23,11 @@ public class Mystery1 : MonoBehaviour
     [SerializeField] private KeyMystery _keyMystery;
 
     private bool _IsMysteryObservation;
+    private bool _hintIsActivated;
 
     private void Start()
     {
+        _hintIsActivated = false;
         _IsMysteryObservation = false;
     }
 
@@ -34,6 +38,12 @@ public class Mystery1 : MonoBehaviour
             _inventoryManager.Activate(0);
             if (!_IsMysteryObservation)
             {
+                if (!_hintIsActivated && SceneManager.GetActiveScene().buildIndex == 0)
+                { 
+                    _controlHint.SetActive(true);
+                    _hintIsActivated = true;
+                }
+
                 _IsMysteryObservation = true;
 
                 _cameraTransition.StartTransition(_cameraMysteryPosition);
